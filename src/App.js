@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Books from "./pages/Books";
 import Contact from "./pages/contact";
 import Header from "./components/Header";
+import BookCard from "./components/BookCard";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <Routes>
       
       <Route path="/" element={<Home />} />
+      <Route path="/Home" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       {/* <Route path="/About" element={<About />} /> */}
