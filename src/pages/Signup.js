@@ -1,14 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 function Signup() {
-  const [inputs , setInput ] = useState({});
-
+  const [inputs , setInputs ] = useState({});
+  const navigate = useNavigate();
   async function SignupBtn(){
     try{
       
-      const res = await axios.post("http://localhost:7000/user/signup")
-      console.log(res)
+      const res = await axios.post("http://localhost:7000/user/signup",inputs)
+      localStorage.setItem("token", res.data.token)
+      navigate("/home")
     }
     catch(e){
        console.log(e.response.data.message)
@@ -21,13 +22,13 @@ function Signup() {
         <h2 className="text-center text-xl font-bold text-white">Sign up</h2>
         <div className="flex flex-col space-y-3 mt-5">
           <input type="text" placeholder="Name" className="input"
-          onChange={(e)=> setInput({...inputs, name:e.target.value})} />
+          onChange={(e)=> setInputs({...inputs, name:e.target.value})} />
           <input type="text" placeholder="Email" className="input" 
-          onChange={(e)=> setInput({...inputs, email:e.target.value})}/>
+          onChange={(e)=> setInputs({...inputs, email:e.target.value})}/>
           <input type="password" placeholder="Password" className="input"
-          onChange={(e)=> setInput({...inputs, password:e.target.value})} />
+          onChange={(e)=> setInputs({...inputs, password:e.target.value})} />
           <input type="password" placeholder="Confirm Password" className="input"
-          onChange={(e)=> setInput({...inputs, confirmPassword:e.target.value})}/>
+          onChange={(e)=> setInputs({...inputs, confirmPassword:e.target.value})}/>
         </div>
         <div className="flex justify-end pt-3">
           <button className="btn " onClick={SignupBtn}>Sign up</button>
