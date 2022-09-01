@@ -9,10 +9,11 @@ function Signup() {
       
       const res = await axios.post("http://localhost:7000/user/signup",inputs)
       localStorage.setItem("token", res.data.token)
+      console.log(res.data.token)
       navigate("/home")
     }
     catch(e){
-       console.log(e.response.data.message)
+       console.log(e.response.data)
         }
         
     }

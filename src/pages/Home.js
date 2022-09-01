@@ -1,6 +1,6 @@
-import {Link}from "react-router-dom"
+
 import{FiSearch} from "react-icons/fi"
-import Signup from "../components/BookCard"
+// import Signup from "../components/BookCard"
 import BookCard from "../components/BookCard"
 function Home (){
   
