@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 function BookDB(){
     const [inputs , setInputs] = useState({})
@@ -19,10 +20,13 @@ function BookDB(){
             Headers: {authentication:token},
       })
       Navigate("/books")
+      toast.success("successfully added the book")
+
         }
         
         catch(e){ 
-            console.log(e.message)
+      toast.error("error occured")
+      
         } 
 
     }
@@ -35,23 +39,31 @@ function BookDB(){
                 className="h-72 w-48"
                  onChange={(e)=> setInputs({...inputs , image:e.target.files[0]})}
             />
-            <div>
+            <div className="space-x-3">
             <input type="text"
                 placeholder="title"
                 onChange={(e)=> setInputs({...inputs , title:e.target.value})}
-                
+                className="inputs"
             />
             <input type="text"
                 placeholder="Author"
                 onChange={(e)=> setInputs({...inputs , Author:e.target.value})}
+                className="inputs"
             />
             <input type="text"
                 placeholder="description"
                 onChange={(e)=> setInputs({...inputs , description:e.target.value})}
+                className="inputs" 
             />
             </div>
-            <div>
-                <button onClick={(e)=>bookDBBTN (e)}>add</button>
+            <div className="space-x-7 text-gray-200 font-bold mt-7 px-3 text-gray-300 ">
+                <button onClick={(e)=>bookDBBTN (e)}
+                className="hover:text-red-300 rounded--2 outline outline-offset-2 rounded-md text-sm  px-2 ">
+                Add</button>
+                <button onClick={(e)=>bookDBBTN (e)}
+                className ="hover:text-red-300 rounded--2 outline outline-offset-2 rounded-md text-sm  px-2 ">
+                Edit</button>
+
             </div>
             </div>
             </form>

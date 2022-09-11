@@ -2,20 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Rubik:wght@400;500;600;700&display=swap');
 body{
-  @apply bg-gray-100;
+  @apply bg-zinc-900;
   font-family: 'Rubik', sans-serif;
-  background-color: rgb(75, 66, 66)
+  /* background-color: rgb(16, 9, 27) */
 
 
 }
 
 .btn {
-  @apply bg-orange-300  py-1 px-5  rounded-full text-sm text-black  ;
+  @apply bg-red-300  py-2 px-5  rounded-full  font-bold hover:bg-gray-800 ;
 }
 .input {
-  @apply bg-gray-100 p-3 rounded-sm text-sm outline-none       
+  @apply bg-gray-100 p-3 rounded-sm text-sm outline-none;      
+  
+}
+.inputs {
+  @apply  bg-gray-200 p-2 rounded-sm text-sm outline-none;   
+  
+}
+
+.socialMedia {
+  @apply text-gray-400 hover:text-red-300;   
   
 }
 

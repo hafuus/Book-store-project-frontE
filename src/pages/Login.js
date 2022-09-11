@@ -5,10 +5,11 @@ function Login() {
   const[inputs,setInputs]=useState({});
    const navigate = useNavigate();
   async function loginBTN(){
+    
     try{
       const res = await axios.post("http://localhost:7000/user/logIn" , inputs)
-      console.log(res)
       
+      localStorage.setItem("token",res.data.token)
        navigate("/home")
     }catch(e){
       console.log(e.response.data.message)
@@ -18,8 +19,8 @@ function Login() {
   }
   return (
     <div className="flex justify-center">
-      <div className="w-2/5 bg-black mt-10 rounded-md drop-shadow-md">
-        <h2 className="text-center text-xl font-bold text-white">Login</h2>
+      <div className="w-2/5 bg-gray-200 mt-10 rounded-md drop-shadow-md p-7">
+        <h2 className="text-center text-2xl font-bold text-red-300">Login</h2>
         <div className="flex flex-col space-y-3 mt-5">
           <input type="text" placeholder="Email" className="input" 
          onChange={(e)=> setInputs({...inputs, email:e.target.value})}
@@ -34,7 +35,7 @@ function Login() {
         <div>
           <p className="text-sm text-gray-400">
             Dont have an account?{" "}
-            <Link to="/signup" className=" font-bold hover:text-orange-300">
+            <Link to="/signup" className=" font-bold hover:text-red-300">
               Sign Up
             </Link>
           </p>

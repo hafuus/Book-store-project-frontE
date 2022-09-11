@@ -19,8 +19,8 @@ function Signup() {
     }
   return (
     <div className="flex justify-center">
-      <div className="w-2/5 bg-black mt-10 rounded-md drop-shadow-md p-10">
-        <h2 className="text-center text-xl font-bold text-white">Sign up</h2>
+      <div className="w-2/5 bg-gray-200 mt-10 rounded-md drop-shadow-md p-10">
+        <h2 className="text-center text-2xl font-bold text-red-300">Sign up</h2>
         <div className="flex flex-col space-y-3 mt-5">
           <input type="text" placeholder="Name" className="input"
           onChange={(e)=> setInputs({...inputs, name:e.target.value})} />
@@ -37,7 +37,7 @@ function Signup() {
         <div>
           <p className="text-sm text-gray-400">
             Already have an account?{" "}
-            <Link to="/login" className=" font-bold hover:text-orange-300">
+            <Link to="/login" className=" font-bold hover:text-red-300 ">
               Log in
             </Link>
           </p>
