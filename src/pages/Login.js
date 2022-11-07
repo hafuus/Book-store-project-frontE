@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { Link , useNavigate} from "react-router-dom";
 import axios from "axios";
+import { useContext } from "react";
+import{UserContex} from "../utils/UserContex";
 function Login() {
   const[inputs,setInputs]=useState({});
    const navigate = useNavigate();
+   const {setUser} = useContext(UserContex)
   async function loginBTN(){
     
     try{
       const res = await axios.post("http://localhost:7000/user/logIn" , inputs)
       
       localStorage.setItem("token",res.data.token)
-       navigate("/home")
+       navigate("/Books")
+       setUser(true)
     }catch(e){
       console.log(e.response.data.message)
       

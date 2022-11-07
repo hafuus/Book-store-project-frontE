@@ -2,7 +2,8 @@
 // const IconRating = require('react-icon-rating')
 
 
-function BookCard(book){
+function BookCard(oneBookMark){
+  
     return(
       //   <Link to ="/Books">
       //   <div className=" flex items-center flex-col justify-between rounded-md drop-shadow-md py-7 mr-16 w-3/4 ">

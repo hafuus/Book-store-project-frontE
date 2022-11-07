@@ -2,10 +2,12 @@
 import { useState,useEffect} from "react";
 import axios from "axios"
 import { IoSendSharp } from "react-icons/io5";
+import {Link , useNavigate} from "react-router-dom"
 function Comments(comment){
     const [comments ,setComments] = useState([])
     const [inputs ,setInputs] = useState([])
-    
+    const Navigate= useNavigate();
+
     useEffect(()=>{
       axios
         .get("http://localhost:7000/comment")
@@ -23,6 +25,7 @@ function Comments(comment){
                 
                 })
                   console.log(res.config.data )
+                  Navigate("/books")
             }catch(e){
                console.log(e)
             }
@@ -37,16 +40,18 @@ function Comments(comment){
             
             <div className="">
               <div className="flex items-center ">
-                <textarea
-                placeholder="leave here a comment..."
-                type="text"
-                className="bg-gray-200 py-3 px-7 pl-2 mb-2 rounded-sm text-sm outline-none"
-                onChange={(e)=> setInputs(e.target.value)}
-                />
-                />
-                <button className="bg-white p-1 outline-none ml-2 hover:text-red-300 mt-4" onClick={submitBTN}>
-                  <IoSendSharp className="mx-2 " />
-                  </button>
+                <Link to = "/Comments/submit">
+                  <textarea
+                  placeholder="leave here a comment..."
+                  type="text"
+                  className="bg-gray-200 py-3 px-7 pl-2 mb-2 rounded-sm text-sm outline-none"
+                   onChange={(e)=> setInputs(e.target.value)}
+                  />
+                
+                   <button className="bg-white p-1  outline-none ml-2 hover:text-red-300 mt-4 " onClick={submitBTN}>
+                    <IoSendSharp className="mx-2 " />
+                    </button>
+                </Link>
               </div>
               </div>
                 <div className="">

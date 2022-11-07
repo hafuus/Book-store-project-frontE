@@ -3,10 +3,12 @@
 @tailwind utilities;
 
 
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Rubik:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 body{
   @apply bg-zinc-900;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+
   /* background-color: rgb(16, 9, 27) */
 
 
